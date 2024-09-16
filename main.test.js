@@ -74,3 +74,11 @@ test('for compHex FFFFFF the expected 14 colors', async () => {
     expect(received[i]).toBe(e);
   });
 });
+
+test('for no provided filters returns entire color list', async () => {
+  const res = await fetchColors();
+
+  // Ideally this would test for the entire collection size
+  // However, without mocking the data fetch we cannot guarantee the remote data will not change
+  expect(res.length).not.toEqual(0);
+});
